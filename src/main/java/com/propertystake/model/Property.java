@@ -43,13 +43,13 @@ public class Property {
     @Column(nullable = false)
     private LocalDate updatedAt;
 
-    // 🔹 Constructeur par défaut avec initialisation automatique des dates
+
     public Property() {
         this.createdAt = LocalDate.now();
         this.updatedAt = LocalDate.now();
     }
 
-    // 🔹 Constructeur avec paramètres
+
     public Property(String name, BigDecimal price, LocalDate fundingDeadline, Double rentalIncomePercentage, String status, String location) {
         this.name = name;
         this.price = price;
@@ -61,12 +61,12 @@ public class Property {
         this.updatedAt = LocalDate.now();
     }
 
-    // ✅ Vérifie si la date limite de financement est dépassée
+
     public boolean isFundingExpired() {
         return LocalDate.now().isAfter(this.fundingDeadline);
     }
 
-    // ✅ Met à jour le statut de la propriété en fonction du montant total investi
+
     public void updatePropertyStatus(BigDecimal totalInvested) {
         if (totalInvested.compareTo(this.price) >= 0) {
             this.status = "FUNDED"; // Propriété entièrement financée
@@ -77,7 +77,7 @@ public class Property {
         }
     }
 
-    // ✅ Retourne le montant restant à investir
+
     public BigDecimal getRemainingAmount() {
         if (this.investments == null || this.investments.isEmpty()) {
             return this.price;
@@ -88,18 +88,18 @@ public class Property {
         return this.price.subtract(totalInvested).max(BigDecimal.ZERO);
     }
 
-    // ✅ Calcule les revenus locatifs basés sur l'investissement
+
     public BigDecimal calculateRentalIncome(BigDecimal investmentAmount) {
         return investmentAmount.multiply(BigDecimal.valueOf(rentalIncomePercentage)).divide(BigDecimal.valueOf(100));
     }
 
-    // 🔹 Met à jour automatiquement la date `updatedAt` avant chaque mise à jour
+
     @PreUpdate
     public void preUpdate() {
         this.updatedAt = LocalDate.now();
     }
 
-    // 🔹 S'assure que `createdAt` et `updatedAt` sont bien définis avant l'enregistrement
+
     @PrePersist
     public void prePersist() {
         if (this.createdAt == null) {
@@ -110,7 +110,7 @@ public class Property {
         }
     }
 
-    // 🔹 Getters et Setters
+
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
     public String getName() { return name; }

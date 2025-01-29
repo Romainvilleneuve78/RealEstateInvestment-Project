@@ -28,7 +28,7 @@ public class Investment {
     @JoinColumn(name = "property_id", nullable = false)
     private Property property;
 
-    // Constructors, getters, and setters
+
 
     public Investment() {
     }

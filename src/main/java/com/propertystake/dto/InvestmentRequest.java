@@ -22,12 +22,12 @@ public class InvestmentRequest {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate date;
 
-    // 🔹 Constructeur par défaut
+
     public InvestmentRequest() {
         this.date = LocalDate.now(); // Défaut à la date du jour si non fournie
     }
 
-    // 🔹 Constructeur avec paramètres
+
     public InvestmentRequest(Long propertyId, Long userId, BigDecimal amount, LocalDate date) {
         this.propertyId = propertyId;
         this.userId = userId;
@@ -35,7 +35,7 @@ public class InvestmentRequest {
         this.date = (date != null) ? date : LocalDate.now(); // Si `date` est null, prendre la date du jour
     }
 
-    // 🔹 Getters et setters
+
     public Long getPropertyId() {
         return propertyId;
     }

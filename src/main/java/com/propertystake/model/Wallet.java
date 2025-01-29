@@ -19,7 +19,7 @@ public class Wallet {
     @JsonBackReference
     private User user;
 
-    // Getters et setters
+
     public Long getId() {
         return id;
     }

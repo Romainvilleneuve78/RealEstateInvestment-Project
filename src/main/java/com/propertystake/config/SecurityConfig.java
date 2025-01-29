@@ -28,7 +28,7 @@ public class SecurityConfig implements WebMvcConfigurer {
         return http.build();
     }
 
-    // Configuration des converters pour gérer "application/json;charset=UTF-8"
+    // Configuration des converters pour gérer "application/json;charset=UTF-8" car nous avons eu des problemes d'encodage lors de la creation d'un user
     @Override
     public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
         MappingJackson2HttpMessageConverter jsonConverter = new MappingJackson2HttpMessageConverter();

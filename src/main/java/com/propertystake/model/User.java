@@ -34,7 +34,7 @@ public class User {
     @JsonManagedReference
     private Set<Investment> investments = new HashSet<>();
 
-    // Constructors, getters, and setters
+
 
     public User() {
     }

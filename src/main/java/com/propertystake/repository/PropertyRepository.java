@@ -8,7 +8,7 @@ import java.util.List;
 @Repository
 public interface PropertyRepository extends JpaRepository<Property, Long> {
 
-    // 🔹 Récupère toutes les propriétés en fonction de leur statut
+
     List<Property> findByStatus(String status);
 
 }
