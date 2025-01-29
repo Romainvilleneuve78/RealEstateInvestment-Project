@@ -1,12 +1,12 @@
-RealEstateInvestment-Project
+**RealEstateInvestment-Project
 
-Description du projet
+Description du projet**
 
 RealEstateInvestment-Project est une plateforme permettant aux investisseurs d'acheter des parts de propriétés immobilières et de recevoir un revenu locatif mensuel. Les utilisateurs peuvent consulter des propriétés en financement, investir dessus via un portefeuille intégré, et suivre leurs investissements.
 
 Fonctionnalités principales :
 
-Agent immobilier :
+**Agent immobilier :**
 
 - Ajouter, modifier ou supprimer des propriétés avant leur lancement.
 
@@ -14,7 +14,7 @@ Agent immobilier :
 
 - Gérer le financement des propriétés.
 
-Investisseurs :
+**Investisseurs :**
 
 - Créer un profil avec des informations personnelles requises.
 
@@ -26,7 +26,7 @@ Investisseurs :
 
 - Être remboursé si une propriété n'est pas totalement financée en 2 mois.
 
-Propriétés
+**Propriétés :**
 
 Chaque propriété a un prix, une date limite de financement et un statut (AVAILABLE, FUNDED, EXPIRED).
 
@@ -44,22 +44,16 @@ Technologies utilisées :
 
 **Email :** JavaMailSender (confirmation d'investissement et revenus locatifs)
 
+
+
 **Installation et exécution**
+- Java 17+
+- Maven
+- PostgreSQL
+- Git
 
- Prérequis
 
-Java 17+
-
-Maven
-
-PostgreSQL
-
-Git
-
- Installation
-
-Clonez le dépôt GitHub :
-
+**Installation**
 git clone https://github.com/RomainVilleneuve78/RealEstateInvestment-Project.git
 cd RealEstateInvestment-Project
 
