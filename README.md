@@ -1,52 +1,37 @@
 **RealEstateInvestment-Project
+Project Description**
+RealEstateInvestment-Project is a platform that allows investors to buy shares in real estate properties and receive monthly rental income. Users can browse properties under financing, invest through an integrated wallet, and track their investments.
 
-Description du projet**
+**Main Features:**
+**Real Estate Agent:**
+- Add, modify, or delete properties before their launch.
+- List all properties with their statuses.
+- Manage the financing of properties.
 
-RealEstateInvestment-Project est une plateforme permettant aux investisseurs d'acheter des parts de propriétés immobilières et de recevoir un revenu locatif mensuel. Les utilisateurs peuvent consulter des propriétés en financement, investir dessus via un portefeuille intégré, et suivre leurs investissements.
 
-Fonctionnalités principales :
+**Investors:**
+- Create a profile with the required personal information.
+- Add money to their wallet via a payment gateway (Stripe).
+- Invest in a property (minimum €500 per investment).
+- Track their investments and receive monthly rental income.
+- Get refunded if a property is not fully funded within 2 months.
 
-**Agent immobilier :**
+- 
+**Properties:**
+- Each property has a price, a financing deadline, and a status (AVAILABLE, FUNDED, EXPIRED).
+- If a property is not fully funded within 2 months, investors are refunded.
+- If it is funded, investors start receiving rental income.
 
-- Ajouter, modifier ou supprimer des propriétés avant leur lancement.
 
-- Lister toutes les propriétés avec leurs statuts.
-
-- Gérer le financement des propriétés.
-
-**Investisseurs :**
-
-- Créer un profil avec des informations personnelles requises.
-
-- Ajouter de l'argent à leur portefeuille via une passerelle de paiement (Stripe).
-
-- Investir dans une propriété (minimum 500€ par investissement).
-
-- Suivre leurs investissements et recevoir un revenu locatif chaque mois.
-
-- Être remboursé si une propriété n'est pas totalement financée en 2 mois.
-
-**Propriétés :**
-
-Chaque propriété a un prix, une date limite de financement et un statut (AVAILABLE, FUNDED, EXPIRED).
-
-Si la propriété n'est pas entièrement financée en 2 mois, les investisseurs sont remboursés.
-
-Si elle est financée, les investisseurs commencent à recevoir un revenu locatif.
-
-Technologies utilisées :
-
+**Technologies Used : **
 **Back-end :** Spring Boot (Java), Spring Security, Hibernate (JPA), PostgreSQL.
-
-**Base de données :** PostgreSQL
-
-**Paiement :** Stripe (non réalisé)
-
-**Email :** JavaMailSender (confirmation d'investissement et revenus locatifs)
+**Database :** PostgreSQL
+**Payment Integration :** Stripe (non réalisé)
+**Email service :** JavaMailSender (confirmation d'investissement et revenus locatifs)
 
 
-
-**Installation et exécution**
+**Installation & Execution :**
+- Requirements:
 - Java 17+
 - Maven
 - PostgreSQL
@@ -61,25 +46,38 @@ Configurez PostgreSQL avec un utilisateur et une base de données.
 
 Mettez à jour le fichier application.properties dans src/main/resources/ avec vos informations de connexion.
 
- Exécution du projet
 
-Compilez et exécutez le projet avec Maven :
-
+**Running the project :**
 mvn spring-boot:run
 
 L'API sera disponible à : http://localhost:8080
 
- Tests API avec Postman
+**Api testing with Postman**
 
-Vous pouvez utiliser les requêtes GET, POST, PUT, DELETE pour tester les différentes routes. Une collection Postman est fournie.
+You can use GET, POST, PUT, and DELETE requests to test various routes. A Postman collection is provided.
 
-🛠️ Endpoints principaux
+**Key Endpoints :**
 
-📌 Gestion des utilisateurs
+**User management**
 
-POST /api/users → Inscription
+Register :
+ => POST /api/users
+ json : {
+     "firstName": "John",
+     "lastName": "Doe",
+     "email": "johndoe@example.com",
+     "role": "INVESTOR",
+     "wallet": {
+        "balance": 10000.00
+     }
+ }
 
-GET /api/users/{id} → Détails d’un utilisateur
+Get user by Id:
+=> GET /api/users/{userId}
+
+Get all users:
+=> GET /api/users
+
 
 📌 Gestion des propriétés
 
