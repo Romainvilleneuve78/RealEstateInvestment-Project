@@ -4,29 +4,29 @@ Description du projet
 
 RealEstateInvestment-Project est une plateforme permettant aux investisseurs d'acheter des parts de propriétés immobilières et de recevoir un revenu locatif mensuel. Les utilisateurs peuvent consulter des propriétés en financement, investir dessus via un portefeuille intégré, et suivre leurs investissements.
 
-Fonctionnalités principales
+Fonctionnalités principales :
 
- Agent immobilier
+Agent immobilier :
 
-Ajouter, modifier ou supprimer des propriétés avant leur lancement.
+- Ajouter, modifier ou supprimer des propriétés avant leur lancement.
 
-Lister toutes les propriétés avec leurs statuts.
+- Lister toutes les propriétés avec leurs statuts.
 
-Gérer le financement des propriétés.
+- Gérer le financement des propriétés.
 
- Investisseurs
+Investisseurs :
 
-Créer un profil avec des informations personnelles requises.
+- Créer un profil avec des informations personnelles requises.
 
-Ajouter de l'argent à leur portefeuille via une passerelle de paiement (Stripe).
+- Ajouter de l'argent à leur portefeuille via une passerelle de paiement (Stripe).
 
-Investir dans une propriété (minimum 500€ par investissement).
+- Investir dans une propriété (minimum 500€ par investissement).
 
-Suivre leurs investissements et recevoir un revenu locatif chaque mois.
+- Suivre leurs investissements et recevoir un revenu locatif chaque mois.
 
-Être remboursé si une propriété n'est pas totalement financée en 2 mois.
+- Être remboursé si une propriété n'est pas totalement financée en 2 mois.
 
- Propriétés
+Propriétés
 
 Chaque propriété a un prix, une date limite de financement et un statut (AVAILABLE, FUNDED, EXPIRED).
 
@@ -34,17 +34,17 @@ Si la propriété n'est pas entièrement financée en 2 mois, les investisseurs 
 
 Si elle est financée, les investisseurs commencent à recevoir un revenu locatif.
 
- Technologies utilisées
+Technologies utilisées :
 
-Back-end : Spring Boot (Java), Spring Security, Hibernate (JPA), PostgreSQL.
+**Back-end :** Spring Boot (Java), Spring Security, Hibernate (JPA), PostgreSQL.
 
-Base de données : PostgreSQL
+**Base de données :** PostgreSQL
 
-Paiement : Stripe (non réalisé)
+**Paiement :** Stripe (non réalisé)
 
-Email : JavaMailSender (confirmation d'investissement et revenus locatifs)
+**Email :** JavaMailSender (confirmation d'investissement et revenus locatifs)
 
- Installation et exécution
+**Installation et exécution**
 
  Prérequis
 
