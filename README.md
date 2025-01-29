@@ -1,6 +1,29 @@
-**RealEstateInvestment-Project
-Project Description**
+**RealEstateInvestment-Project**
+**Project Description**
+
+
 RealEstateInvestment-Project is a platform that allows investors to buy shares in real estate properties and receive monthly rental income. Users can browse properties under financing, invest through an integrated wallet, and track their investments.
+
+
+**Installation**
+git clone https://github.com/RomainVilleneuve78/RealEstateInvestment-Project.git
+cd RealEstateInvestment-Project
+
+Configurez PostgreSQL avec un utilisateur et une base de données.
+
+Mettez à jour le fichier application.properties dans src/main/resources/ avec vos informations de connexion.
+
+
+**Running the project :**
+mvn spring-boot:run
+
+L'API sera disponible à : http://localhost:8080
+
+**Api testing with Postman**
+
+You can use GET, POST, PUT, and DELETE requests to test various routes. A Postman collection is provided.
+
+
 
 **Main Features:**
 **Real Estate Agent:**
@@ -38,24 +61,6 @@ RealEstateInvestment-Project is a platform that allows investors to buy shares i
 - Git
 
 
-**Installation**
-git clone https://github.com/RomainVilleneuve78/RealEstateInvestment-Project.git
-cd RealEstateInvestment-Project
-
-Configurez PostgreSQL avec un utilisateur et une base de données.
-
-Mettez à jour le fichier application.properties dans src/main/resources/ avec vos informations de connexion.
-
-
-**Running the project :**
-mvn spring-boot:run
-
-L'API sera disponible à : http://localhost:8080
-
-**Api testing with Postman**
-
-You can use GET, POST, PUT, and DELETE requests to test various routes. A Postman collection is provided.
-
 **Key Endpoints :**
 
 **User management**
@@ -78,127 +83,27 @@ Get user by Id:
 Get all users:
 => GET /api/users
 
-
-📌 Gestion des propriétés
-
-POST /api/properties → Ajouter une propriété
-
-GET /api/properties → Lister les propriétés (6 max pour les investisseurs)
-
-GET /api/properties/{id} → Détails d’une propriété
-
-DELETE /api/properties/{id} → Supprimer une propriété
-
-📌 Gestion des investissements
-
-POST /api/investments → Investir dans une propriété
-
-GET /api/investments/user/{userId} → Récupérer les investissements d’un utilisateur
-
-GET /api/investments/property/{propertyId} → Récupérer les investissements d’une propriété
-
- Architecture
-
-L’architecture suit le modèle MVC (Model-View-Controller) :
-
-Controller : Gère les requêtes API.
-
-Service : Contient la logique métier.
-
-Repository : Interagit avec la base de données via JPA/Hibernate.
-
-L'application est structurée selon une architecture MVC (Model-View-Controller) :
-
-Modèle (Model)
-
-Gère la persistance des données avec JPA et Hibernate. Voici les entités principales :
-
-User : Représente un utilisateur avec son portefeuille (Wallet).
-
-Property : Représente une propriété immobilière en financement.
-
-Investment : Relie un utilisateur à une propriété avec un montant investi.
-
-Wallet : Stocke l’argent de l’utilisateur et reçoit les revenus locatifs.
-
-Service (Service Layer)
-
-Gère la logique métier :
-
-InvestmentService : Vérifie les fonds disponibles, applique la logique d’investissement et de remboursement automatique.
-
-PropertyService : Gère les propriétés et vérifie le statut (FUNDED, EXPIRED).
-
-UserService : Gère les utilisateurs et leur portefeuille.
-
-Contrôleurs (Controllers)
-
-Exposent les endpoints REST :
-
-PropertyController : Gestion des propriétés.
-
-InvestmentController : Gestion des investissements.
-
-UserController : Gestion des utilisateurs et authentification.
-
-endpoint et requetes principal pour postman
-
- User (Utilisateur)
- 
- Créer un utilisateur
- 
-
-POST /api/users
-
-Body: 
-{
-    "firstName": "John",
-    "lastName": "Doe",
-    "email": "johndoe@example.com",
-    "role": "INVESTOR",
-    "wallet": {
-        "balance": 10000.00
-    }
-}
-
- Récupérer un utilisateur par ID
-
-GET /api/users/{userId}
-
- Récupérer tous les utilisateurs
+Delete a user:
+=> DELETE /api/users/{userId}
 
 
-GET /api/users
+**Wallet Management**
+Get a user's wallet:
+=> GET /api/wallets/{userId}
 
- Supprimer un utilisateur
- 
+Add funds to wallet:
+=> POST /api/wallets/deposit
 
-DELETE /api/users/{userId}
-
- Wallet (Portefeuille)
- 
- Récupérer le portefeuille d'un utilisateur
-
-GET /api/wallets/{userId}
-
- Ajouter des fonds au portefeuille
-
-POST /api/wallets/deposit
-
-Body:
-{
+json : {
   "userId": 1,
   "amount": 1000.00
 }
 
- Property (Propriété)
- 
- Ajouter une propriété
+**Property Management**
 
-POST /api/properties
-
-Body: 
-{
+Add a property:
+=> POST /api/properties
+json : {
     "name": "Villa Leo",
     "price": 25000.00,
     "rentalIncomePercentage": 7.5,
@@ -207,73 +112,32 @@ Body:
     "fundingDeadline": "2025-03-29"
 }
 
- Récupérer toutes les propriétés
+Get all properties:
+=> GET /api/properties
 
-GET /api/properties
+Get properties by ID:
+=> GET /api/properties/{propertyId}
 
- Récupérer les propriétés ouvertes au financement 
+Delete a property:
+=> DELETE /api/properties/{propertyId}
 
-GET /api/properties/open
 
- Récupérer une propriété par ID
+**Investment Mangement**
 
-GET /api/properties/{propertyId}
-
- Supprimer une propriété
-
-DELETE /api/properties/{propertyId}
-
- Investment (Investissement)
- 
- Investir dans une propriété
-
-POST /api/investments
-Body:
-{
+Invest in a property:
+=> POST /api/investments
+json : {
   "userId": 1,
   "propertyId": 5,
-  "amount": 500
+  "amount": 500,
   "date": "2025-02-01"
 }
 
- Récupérer les investissements d'un utilisateur
+Get a user's investments:
+=> GET /api/investments/user/{userId}
 
-GET /api/investments/user/{userId}
-
- Récupérer les investissements pour une propriété
-
-GET /api/investments/property/{propertyId}
-
- Rent Income (Revenus locatifs)
- 
- Créditer les revenus locatifs mensuels (tâche planifiée)
-
-POST /api/investments/credit-rent-income
-(c'est possible de tester avec @Scheduled qui s'exécute chaque mois)
-
- Refund (Remboursement automatique)
- 
- Vérifier et rembourser les investissements des propriétés non financées après 2 mois (tâche planifiée)
-
-POST /api/properties/check-expired
-
- Notes
- 
-Toutes les requêtes POST ont un body JSON
-
-Les endpoints GET récupèrent les données
-
-Il y a des tâches planifiées pour les revenus locatifs et les remboursements
-
-Les utilisateurs doivent avoir un portefeuille avant d’investir
-
-Le montant minimum d’investissement est 500€
-
-On ne peut pas investir plus que le montant total de la propriété
-
-Une propriété "FUNDED" ne peut plus recevoir d’investissement
-
-Une propriété non financée sous 2 mois entraîne un remboursement
+Get invesments for a property:
++> GET /api/investments/property/{propertyId}
 
 ![image](https://github.com/user-attachments/assets/a532c096-434b-4d17-ad37-d0986f2a521c)
 
