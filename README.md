@@ -11,15 +11,15 @@ git clone https://github.com/RomainVilleneuve78/RealEstateInvestment-Project.git
 
 cd RealEstateInvestment-Project
 
-Configurez PostgreSQL avec un utilisateur et une base de données.
+Configure PostgreSQL with a user and a database.
 
-Mettez à jour le fichier application.properties dans src/main/resources/ avec vos informations de connexion.
+Update the application.properties file in src/main/resources/ with your database connection details.
 
 
 ## Running the project :
 mvn spring-boot:run
 
-L'API sera disponible à : http://localhost:8080
+L'API will available on : http://localhost:8080
 
 **Api testing with Postman**
 
@@ -47,11 +47,15 @@ You can use GET, POST, PUT, and DELETE requests to test various routes. A Postma
 - If it is funded, investors start receiving rental income.
 
 
-##Technologies Used :
-### Back-end : Spring Boot (Java), Spring Security, Hibernate (JPA), PostgreSQL.
-### Database : PostgreSQL
-### Payment Integration :** Stripe (non réalisé)
-### Email service :** JavaMailSender (confirmation d'investissement et revenus locatifs)
+## Technologies Used :
+### **Back-end** :
+Spring Boot (Java), Spring Security, Hibernate (JPA), PostgreSQL.  
+### **Database** :
+PostgreSQL  
+### **Payment Integration** : 
+Stripe (not finished)  
+### **Email Service** : 
+JavaMailSender  
 
 
 ## Installation & Execution :
