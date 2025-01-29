@@ -1,11 +1,11 @@
-**RealEstateInvestment-Project**
-**Project Description**
+# RealEstateInvestment-Project --- Project Desciption
+
 
 
 RealEstateInvestment-Project is a platform that allows investors to buy shares in real estate properties and receive monthly rental income. Users can browse properties under financing, invest through an integrated wallet, and track their investments.
 
 
-**Installation**
+## Installation :
 
 git clone https://github.com/RomainVilleneuve78/RealEstateInvestment-Project.git
 
@@ -16,7 +16,7 @@ Configurez PostgreSQL avec un utilisateur et une base de données.
 Mettez à jour le fichier application.properties dans src/main/resources/ avec vos informations de connexion.
 
 
-**Running the project :**
+## Running the project :
 mvn spring-boot:run
 
 L'API sera disponible à : http://localhost:8080
@@ -27,35 +27,34 @@ You can use GET, POST, PUT, and DELETE requests to test various routes. A Postma
 
 
 
-**Main Features:**
-**Real Estate Agent:**
+## Main Features:
+### Real Estate Agent:
 - Add, modify, or delete properties before their launch.
 - List all properties with their statuses.
 - Manage the financing of properties.
 
 
-**Investors:**
+## Investors:
 - Create a profile with the required personal information.
 - Add money to their wallet via a payment gateway (Stripe).
 - Invest in a property (minimum €500 per investment).
 - Track their investments and receive monthly rental income.
 - Get refunded if a property is not fully funded within 2 months.
 
-- 
-**Properties:**
+## Properties: 
 - Each property has a price, a financing deadline, and a status (AVAILABLE, FUNDED, EXPIRED).
 - If a property is not fully funded within 2 months, investors are refunded.
 - If it is funded, investors start receiving rental income.
 
 
-**Technologies Used : **
-**Back-end :** Spring Boot (Java), Spring Security, Hibernate (JPA), PostgreSQL.
-**Database :** PostgreSQL
-**Payment Integration :** Stripe (non réalisé)
-**Email service :** JavaMailSender (confirmation d'investissement et revenus locatifs)
+##Technologies Used :
+### Back-end : Spring Boot (Java), Spring Security, Hibernate (JPA), PostgreSQL.
+### Database : PostgreSQL
+### Payment Integration :** Stripe (non réalisé)
+### Email service :** JavaMailSender (confirmation d'investissement et revenus locatifs)
 
 
-**Installation & Execution :**
+## Installation & Execution :
 - Requirements:
 - Java 17+
 - Maven
@@ -63,9 +62,9 @@ You can use GET, POST, PUT, and DELETE requests to test various routes. A Postma
 - Git
 
 
-**Key Endpoints :**
+##Key Endpoints :
 
-**User management**
+### User management
 
 Register :
  => POST /api/users
@@ -89,7 +88,7 @@ Delete a user:
 => DELETE /api/users/{userId}
 
 
-**Wallet Management**
+### Wallet Management
 Get a user's wallet:
 => GET /api/wallets/{userId}
 
@@ -101,7 +100,7 @@ json : {
   "amount": 1000.00
 }
 
-**Property Management**
+### Property Management
 
 Add a property:
 => POST /api/properties
@@ -124,7 +123,7 @@ Delete a property:
 => DELETE /api/properties/{propertyId}
 
 
-**Investment Mangement**
+### Investment Mangement
 
 Invest in a property:
 => POST /api/investments
