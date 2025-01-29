@@ -150,126 +150,137 @@ InvestmentController : Gestion des investissements.
 UserController : Gestion des utilisateurs et authentification.
 
 endpoint et requetes principal pour postman
+
  User (Utilisateur)
+ 
  Créer un utilisateur
-http
-Copier
-Modifier
+ 
+
 POST /api/users
+
 Body: 
 {
-  "firstName": "John",
-  "lastName": "Doe",
-  "email": "johndoe@example.com"
+    "firstName": "John",
+    "lastName": "Doe",
+    "email": "johndoe@example.com",
+    "role": "INVESTOR",
+    "wallet": {
+        "balance": 10000.00
+    }
 }
+
  Récupérer un utilisateur par ID
-http
-Copier
-Modifier
+
 GET /api/users/{userId}
+
  Récupérer tous les utilisateurs
-http
-Copier
-Modifier
+
+
 GET /api/users
+
  Supprimer un utilisateur
-http
-Copier
-Modifier
+ 
+
 DELETE /api/users/{userId}
+
  Wallet (Portefeuille)
+ 
  Récupérer le portefeuille d'un utilisateur
-http
-Copier
-Modifier
+
 GET /api/wallets/{userId}
+
  Ajouter des fonds au portefeuille
-http
-Copier
-Modifier
+
 POST /api/wallets/deposit
+
 Body:
 {
   "userId": 1,
   "amount": 1000.00
 }
+
  Property (Propriété)
+ 
  Ajouter une propriété
-http
-Copier
-Modifier
+
 POST /api/properties
+
 Body: 
 {
-  "name": "Villa Azure",
-  "price": 25000.00,
-  "location": "Miami",
-  "rentalIncomePercentage": 7.5
+    "name": "Villa Leo",
+    "price": 25000.00,
+    "rentalIncomePercentage": 7.5,
+    "status": "AVAILABLE",
+    "location": "Villejuif, Paris",
+    "fundingDeadline": "2025-03-29"
 }
+
  Récupérer toutes les propriétés
-http
-Copier
-Modifier
+
 GET /api/properties
- Récupérer les propriétés ouvertes au financement (max 6)
-http
-Copier
-Modifier
+
+ Récupérer les propriétés ouvertes au financement 
+
 GET /api/properties/open
+
  Récupérer une propriété par ID
-http
-Copier
-Modifier
+
 GET /api/properties/{propertyId}
+
  Supprimer une propriété
-http
-Copier
-Modifier
+
 DELETE /api/properties/{propertyId}
+
  Investment (Investissement)
+ 
  Investir dans une propriété
-http
-Copier
-Modifier
+
 POST /api/investments
 Body:
 {
   "userId": 1,
   "propertyId": 5,
   "amount": 500
+  "date": "2025-02-01"
 }
+
  Récupérer les investissements d'un utilisateur
-http
-Copier
-Modifier
+
 GET /api/investments/user/{userId}
+
  Récupérer les investissements pour une propriété
-http
-Copier
-Modifier
+
 GET /api/investments/property/{propertyId}
+
  Rent Income (Revenus locatifs)
+ 
  Créditer les revenus locatifs mensuels (tâche planifiée)
-http
-Copier
-Modifier
+
 POST /api/investments/credit-rent-income
-(Tu peux aussi tester avec @Scheduled qui s'exécute chaque mois)
+(c'est possible de tester avec @Scheduled qui s'exécute chaque mois)
 
  Refund (Remboursement automatique)
+ 
  Vérifier et rembourser les investissements des propriétés non financées après 2 mois (tâche planifiée)
-http
-Copier
-Modifier
+
 POST /api/properties/check-expired
+
  Notes
+ 
 Toutes les requêtes POST ont un body JSON
+
 Les endpoints GET récupèrent les données
+
 Il y a des tâches planifiées pour les revenus locatifs et les remboursements
+
 Les utilisateurs doivent avoir un portefeuille avant d’investir
+
 Le montant minimum d’investissement est 500€
+
 On ne peut pas investir plus que le montant total de la propriété
+
 Une propriété "FUNDED" ne peut plus recevoir d’investissement
+
 Une propriété non financée sous 2 mois entraîne un remboursement
 
 ![image](https://github.com/user-attachments/assets/a532c096-434b-4d17-ad37-d0986f2a521c)
