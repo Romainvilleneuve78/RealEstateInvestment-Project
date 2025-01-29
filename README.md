@@ -6,8 +6,8 @@ RealEstateInvestment-Project is a platform that allows investors to buy shares i
 
 
 **Installation**
-git clone https://github.com/RomainVilleneuve78/RealEstateInvestment-Project.git
 
+git clone https://github.com/RomainVilleneuve78/RealEstateInvestment-Project.git
 cd RealEstateInvestment-Project
 
 Configurez PostgreSQL avec un utilisateur et une base de données.
